@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Loader from './Loader/Loader';
 import Button from './Button/Button';
@@ -13,13 +13,13 @@ function App() {
   const [tags, setTags] = useState('');
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [webformatURL, setWebformatURL] = useState('');
+  // const [totalPages, setTotalPages] = useState(0);
+  // const [webformatURL, setWebformatURL] = useState('');
   const [largeImageURL, setLargeImageURL] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showButton, setShowButton] = useState(true);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const toogleLoading = () => {
     setIsLoading(!isLoading);
@@ -72,7 +72,7 @@ function App() {
       setImages([...images, ...request]);
       //jak dobrać się do poprzednich images setImages(prevState => [...prevState, ...request.data.hits]);
       setPage(page + 1);
-      // setShowButton(true);
+      setShowButton(true);
 
       if (request.length === 0) {
         Notify.failure(
