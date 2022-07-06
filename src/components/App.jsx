@@ -70,7 +70,7 @@ function App() {
     try {
       const request = await getImages(searchInputValue, page);
       setImages([...images, ...request]);
-      //jak dobrać się do poprzednich images setImages(prevState => [...prevState, ...request.data.hits]);
+      //jak dobrać się do poprzednich images setImages(prevState => [...prevState, ...request.data.hits]); 
       setPage(page + 1);
       setShowButton(true);
 
@@ -107,7 +107,7 @@ function App() {
       <ImageGallery images={images} openModal={openModal} />
       {isLoading && <Loader />}
 
-      {showButton && isLoading && images.length >= 9 && (
+      {images.length > 0 && (
         <Button label={'Load more'} fetchMoreImages={loadMore} />
       )}
 
